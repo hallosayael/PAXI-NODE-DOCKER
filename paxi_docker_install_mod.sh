@@ -1,13 +1,13 @@
 #!/bin/bash
 set -e
 
-# === Internet check ===
-echo "🔍 Checking internet connection..."
-if ! ping -c 1 -W 2 google.com &> /dev/null; then
-  echo "❌ No internet connection. Please check your network and retry."
-  exit 1
-fi
-echo "✅ Internet OK!"
+# === Terminal Colors ===
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+CYAN='\033[0;36m'
+RESET='\033[0m'
+BLUE_LINE="\e[38;5;220m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 
 # === Header Display ===
 function show_header() {
@@ -23,6 +23,14 @@ function show_header() {
     echo -e "🚀 \e[1;33mPaxi Docker Mod\e[0m - Powered by \e[1;33mHallosayael\e[0m 🚀"
     echo ""
 }
+
+# === Internet check ===
+echo "🔍 Checking internet connection..."
+if ! ping -c 1 -W 2 google.com &> /dev/null; then
+  echo "❌ No internet connection. Please check your network and retry."
+  exit 1
+fi
+echo "✅ Internet OK!"
 
 ### === Required parameters ===
 REQUIRED_CPU=4
